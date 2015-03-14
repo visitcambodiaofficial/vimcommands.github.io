@@ -1,0 +1,337 @@
+<html>
+<head>
+  <title>Index</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="description" content="Vim Commands">
+  <meta name="keywords" content="Vim Commands">
+  <meta name="Bunlong VAN" content="bunlong.van@gmail.com">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <div id="container">
+    <header>
+      <h1>
+        <a href="/">Vim Commands</a>
+      </h1>
+    </header>
+    <p>
+      Unlike other editors, Vim has different modes. It starts in Normal mode, in which typed chars are interpreted as commands. Pressing 'i' or 'Insert', enter Vim in insert mode, from which you can type anything. To exit insert mode, just press 'Escape'. Something like that, here is some useful commands for VIM editor.
+    </p>
+    <h3>Vim Visual Mode</h3>
+    <ul>
+      <li>
+        <code>v%</code> if the cursor is on the starting/ending parenthesis
+      </li>
+      <li>
+        <code>vib</code> if the cursor is inside the parenthesis block
+      </li>
+      <li>
+        <code>vi"</code> for double quotes
+      </li>
+      <li>
+        <code>vi'</code> for single quotes
+      </li>
+      <li>
+        <code>vi{ / viB</code> for curly block
+      </li>
+      <li>
+        <code>gv</code> reselect last visual selection
+      </li>
+    </ul>
+    <h3>Indenting</h3>
+    <ul>
+      <li>
+        <code>==</code> reselect last visual selection
+      </i>
+      <li>
+        <code>=</code> in visual mode, indents the selected block
+      </i>
+      <li>
+        <code>gg=G</code> go to beginning of the buffer (gg) and indents (=) until the end of buffer (G)
+      </i>
+      <li>
+        <code><</code> and <code>></code> indents a block (in visual mode) to left or right. Press '.' to repeat last indenting and 'u' to undo
+      </i>
+    </ul>
+    <h3>Smart movements</h3>
+    <ul>
+      <li>
+        <code>*</code> and # search for the word under the cursor forward/backward
+      </i>
+      <li>
+        <code>w</code> to the next word
+      </i>
+      <li>
+        <code>W</code> to the next space-separated word
+      </i>
+      <li>
+        <code>b</code> / <code>e</code> to the begin/end of the current word. (B / E for space separated only)
+      </i>
+      <li>
+        <code>gg</code> / <code>G</code> jump to the begin/end of the file
+      </i>
+      <li>
+        <code>%</code> jump to the matching { .. } or ( .. ), etc...
+      </i>
+      <li>
+        <code>{</code> / <code>}</code> jump to next paragraph
+      </i>
+      <li>
+        <code>'.</code> jump back to last edited line
+      </i>
+      <li>
+        <code>nG</code> jump to line n
+      </i>
+      <li>
+        <code>L</code> jump to the bottom of the screen ("low")
+      </i>
+      <li>
+        <code>H</code> jump to the top of the screen ("high")
+      </i>
+      <li>
+        <code>M</code> jump to the middle of the screen ("middle")
+      </i>
+      <li>
+        <code>C-o</code> jump back
+      </i>
+      <li>
+        <code>C-i</code> jump forward
+      </i>
+      <li>
+        <code>zt</code> move this line to the top of the screen ("top")
+      </i>
+      <li>
+        <code>zb</code> move this line to the bottom of the screen ("bottom")
+      </i>
+      <li>
+        <code>zz</code> move this line to the middle of the screen ("ziddle?")
+      </i>
+    </ul>
+    <h3>Smart Finding and Replacing</h3>
+    <ul>
+      <li>
+        <code>/search_pattern</code> find next match. Examples "/function" or "/\d{2}-\d{2}-\d{2}" to locate some date like "1981-06-13"
+      </i>
+      <li>
+        <code>?search_pattern</code> find match backward
+      </i>
+      <li>
+        <code>n</code> repeat the next '/' or '?' command
+      </i>
+      <li>
+        <code>N</code> same as 'n' but in reverse direction
+      </i>
+      <li>
+        <code>%s/text/other/</code> replace 'text' by 'other' in the whole document (some commands accepts ranges and % stands for the whole document range - see ':h range')
+      </i>
+      <li>
+        <code>:s/text/other/</code> replace 'text' by 'other' in the current line. Actually, any character can be used instead of '/', like 's.7/11/2010.11/7/2010.'
+      </i>
+      <li>
+        <code>:'<,'>s/text/other/</code> replace 'text' by 'other' in the last visual selection. '< and '> are the markers for the beginning and ending of the visual selection. Pressing ':' while on visual mode, these markers are automatically inserted in the command line.
+      </i>
+      <li>
+        <code>&</code> repeat last substitution command
+      </i>
+      <li>
+        Multiple files
+      </i>
+    </ul>
+    <pre class="screen">
+# bad
+arr = Array.new
+hash = Hash.new
+
+# good
+arr = []
+hash = {}</pre>
+      <h3>Quick editing commands</h3>
+    <ul>
+      <li>
+        <code>I</code> insert at the begin
+      </i>
+      <li>
+        <code>a</code> / <code>A</code> append to next / append to end
+      </i>
+      <li>
+        <code>o</code> / <code>O</code> open a new line after/before the current
+      </i>
+      <li>
+        <code>v</code> / <code>V</code> visual mode (to select text!)
+      </i>
+      <li>
+        <code>Shift+R</code> replace text
+      </i>
+      <li>
+        <code>C</code> change remaining part of line
+      </i>
+      <li>
+        <code>dd</code> delete current line (actually, moves it to Vim internal clipboard)
+      </i>
+      <li>
+        <code>D</code> delete until the end of the line
+      </i>
+      <li>
+        <code>dw</code> delete from current cursor until the end of the word under cursor
+      </i>
+      <li>
+        <code>diw</code> delete inner word (the entire word under the cursor)
+      </i>
+      <li>
+        <code>db</code> delete until the beginning of the word or a word backward if the cursor is already in the beginning of some word
+      </i>
+      <li>
+        <code>ds'</code>, <code>ds"</code>, <code>ds{</code>, <code>ds[</code>, <code>ds(</code> delete surrounds ('', "", {}, (), [])
+      </i>
+      <li>
+        <code>dst</code> delete surrounding tag
+      </i>
+      <li>
+        <code>di'</code>, <code>di"</code>, <code>di{</code>, <code>di[</code>, <code>di(</code> delete content inside the given surround
+      </i>
+      <li>
+        <code>da'</code>, <code>da"</code>, <code>da{</code>, <code>da[</code>, <code>da(</code> delete all content of the given surround, including the surround characters
+      </i>
+      <li>
+        <code>dit</code> delete inner tag content
+      </i>
+      <li>
+        <code>cs</code> work like <code>ds</code> but replacing the surround instead of deleting them. For instance, ci"' will turn "text" into 'text'
+      </i>
+      <li>
+        <code>yss*</code> apply surround around the entire line. Ex. <code>yss'</code> will apply an apostrophe around the line, while <code>yss<div></code> will surround the line with a div tag.
+      </i>
+      <li>
+        <code>s*</code> adds a surround while on visual mode (click and drag with mouse or press 'v' to ender visual mode and use the movement commands)
+      </i>
+      <li>
+        <code>ys<movement command></code> applies surround around the region described by the movement command. Ex. With cursor under "word" <code>ysiw<span></code> results in <code><span>word</span></code>
+      </i>
+      <li>
+        <code>c</code>, <code>cw</code>, <code>ciw</code>, <code>cb</code>, <code>ci*</code> works like the delete commands but finish the command on insert mode (c stands for change)
+      </i>
+      <li>
+        <code>c</code>, <code>cw</code>, <code>ciw</code>, <code>cb</code>, <code>ci*</code> works like the delete commands but finish the command on insert mode (c stands for change)
+      </i>
+      <li>
+        <code>\c<space></code> toggle line (or block in visual mode) commenting
+      </i>
+      <li>
+        <code>ggdG</code> [d]eletes entire buffer - from beginning [gg] to end [G] of the document
+      </i>
+    </ul>
+    <h3>Combining Commands</h3>
+    <ul>
+      <li>
+        <code>cW</code> change till end of word
+      </i>
+      <li>
+        <code>3cW</code> change 3 words
+      </i>
+      <li>
+        <code>BcW</code> to begin of full word, change full word
+      </i>
+      <li>
+        <code>ciW</code> change inner word
+      </i>
+      <li>
+        <code>ci"</code> change inner between ".."
+      </i>
+      <li>
+        <code>ci(</code> change text between ( .. )
+      </i>
+      <li>
+        <code>4dd</code> delete 4 lines
+      </i>
+      <li>
+        <code>3x</code> delete 3 characters
+      </i>
+      <li>
+        <code>3s</code> substitute 3 characters
+      </i>
+    </ul>
+    <h3>Folding</h3>
+    <ul>
+      <li>
+        <code>:set foldmethod=syntax</code> fold by syntax definitions
+      </i>
+      <li>
+        <code>:set foldmethod=indent</code> old by indentation
+      </i>
+      <li>
+        <code>zc</code> close the current fold
+      </i>
+      <li>
+        <code>zo</code> open the current fold
+      </i>
+      <li>
+        <code>zM</code> close all folds
+      </i>
+      <li>
+        <code>zr</code> open one level of folds
+      </i>
+      <li>
+        <code>zR</code> open all folds
+      </i>
+      <li>
+        <code>zj</code> move to the next fold
+      </i>
+      <li>
+        <code>zk</code> move to the previous fold
+      </i>
+      <li>
+        <code>zm</code> close one level of folds
+      </i>
+      <li>
+        <code>zn</code> disable folding
+      </i>
+      <li>
+        <code>zN</code> re-enable folding
+      </i>
+    </ul>
+    <h3>Useful Programmer Commands</h3>
+    <ul>
+      <li>
+        <code>r</code> replace one character (e.g. rd replaces the current char with d)
+      </i>
+      <li>
+        <code>~</code> changes case
+      </i>
+      <li>
+        <code>Ctrl+A</code> / <code>Ctrl+X</code> increments/decrements a number
+      </i>
+      <li>
+        <code>.</code> repeat last command (a simple macro)
+      </i>
+      <li>
+        <code>=</code> indent line (specify a range, or use visual mode)
+      </i>
+    </ul>
+    <h3>Buffers</h3>
+    <ul>
+      <li>
+        <code>bufdo</code> refresh all files in buffer from disk
+      </i>
+    </ul>
+    <h3>Write File Readonly</h3>
+    <ul>
+      <li>
+        <code>w !sudo tee %</code>
+      </i>
+    </ul>
+    <h3>Macro Recording</h3>
+    <ul>
+      <li>
+        Press <code>q[</code> key <code>]</code> to start recording
+      </i>
+      <li>
+        Then hit <code>q</code> to stop recording
+      </i>
+      <li>
+        The macro can be played with <code>@[</code> key <code>]</code>
+      </i>
+    </ul>
+  </div>
+</body>
+</html> 
